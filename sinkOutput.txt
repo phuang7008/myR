@@ -1,0 +1,20 @@
+[1] "structure of a "
+ num [1:5] 18 2 3 4 5
+NULL
+[1] "Class of a "
+[1] "numeric"
+[1] "mode() and length() of a "
+[1] "numeric"
+[1] 5
+[1] "attributes() of a "
+NULL
+[1] "summary of a "
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    2.0     3.0     4.0     6.4     5.0    18.0 
+[1] "Meta data structure "
+a :  num [1:5] 18 2 3 4 5
+b :  int [1:10] 1 2 3 4 5 6 7 8 9 10
+d :  num [1:4] 8 9 7 6
+e :  num [1:3] NA NA 17
+f :  num [1:7] 2 4 NA 8 11 13 15
+g :  num [1:2] 4 8
