@@ -3,13 +3,16 @@
 
 general <- function () {
     # In R, data is stored as a vector
-    a <- c(1,2,3,4,5);
-    c(8, 9, 7, 6) -> d;
-    assign('f', c(2,4,6,8,11,13,15));
+    a <- c(1,2,3,4,5);          c(8, 9, 7, 6) -> d;         assign('f', c(2,4,6,8,11,13,15));    print (a);  print (d);  print(f)
+    a[1] <- 18;         print (a);          print (paste("indexing ", a[3]))
     
-    print (a);  print (d);  print(f)
-    a[1] <- 18;     print (a)
-    print (paste("indexing ", a[3]))
+    # inline usage only: you could used scan() to enter your data, end with double 'enter' keyboard
+    print("Please enter the data");     s1 <- scan();           print("Using scan() for data inupt ");          print(s1)
+    
+    # you can also use scan() to read files
+    cat('Title extra line', '2 6 5 7 8', '11 18 92 17 63', file='ex.data', sep="\n");
+    s2 <- scan("ex.data", skip=1, quiet=TRUE);        print("Read data from file ");      print(s2)
+    unlink("ex.data");      # tidy up and remove the ex.data file
     
     # negative indices give everything except these indices.
     print ("Negative indexing: "); print (a[-2])
@@ -40,23 +43,27 @@ general <- function () {
     print("summary of a ");             print (summary(a));
     print("Meta data structure ");      print (ls.str());       # ls.str( ) to view all variables (meta data structure)
     
-    # to restore it to the console once again
-    sink();
-    
     # to find out the arguments used for a function,
     print ("arguments for seq() is ");          print(args(seq))
     
     # The entities that R creates and manipulates are known as objects. These may be variables, 
     # arrays of numbers. To view the object list use > objects( ) or > ls ( )
-    print (objects())
-    print (ls())
+    print (objects());          print (ls())
     
     # to remove individual object use > rm (x, y, z, ink, junk, temp, foo, bar)
-    rm (a, b)
-    print ("After remove  the objects, check it again ");       print(ls())
+    rm (a, b);          print ("After remove  the objects, check it again ");       print(ls())
+    
+    # to find all the files in a directory, use list.files()
+    myDir <- getwd();       print(paste("get current directory first", myDir));     print("the file list");  allFiles <- list.files(myDir);  print(allFiles)
+    
+    # using regular express to grep files you are interested in. Note: grep() will return the indexes of the find items, 
+    fileIdx <- grep('.txt', allFiles);      print("the indexes of files with match pattern are");       print(fileIdx);
+    print("Use vector index to find the names of all matched files");       print(allFiles[grep('.txt', allFiles)]);
     
     # rep() is used for replicating an object in various complicated ways:
     s1 <- rep(d, times=3);          print(s1);          # puts three copies of 'd' end-to-end in s1
     s2 <- rep(d, each=3);           print(s2);          # repeats each element three times
     
+    # to restore it to the console once again
+    sink();
 }
