@@ -1,5 +1,6 @@
 # A list is a data structure that can hold any number of any types of other data structures. http://www.r-bloggers.com/how-to-use-lists-in-r/
 # If you have vector, a dataframe, and a character object, you can put all of those into one list object
+# Note: all vectors passed in don't have to have the same length
 
 myList <- function () {
     n=c(2, 3, 5);     s=c("aa", "bb", "cc", "dd", "ee");    b=c(TRUE, FALSE, TRUE, FALSE);    df=data.frame(y=c(1:3), x=c('m', 'm', 'f'));    chars<-("hello"); 
@@ -11,9 +12,9 @@ myList <- function () {
     # find out how many items on the list, use length()
     print("The length of the list is ");    print(length(x))
 
-    # slicing: We retrieve a list slice with the single square bracket "[]" operator. The following is a slice containing the second member of x, which is a copy of s.
-    # it will return a list rather than the data structure that is the component of the list, which is normally not what we would want to do.
-    print (x[2]);           print(x[c(2, 5)]);      print("The following returns a list"); print(x[6][1])
+    # slicing: We retrieve a list slice with the single square bracket "[]" operator. So the result is still a list, except it has a single component
+    # it will return a list rather than the data structure that is the component of the list
+    print("The followings return a list after subsetting");     print (x[2]);           print(x[c(2, 5)]);      print(x[6])
     
     # in addition, you cannot turn the sliced items into a list using as.list() because it already is a list
     xList <- as.list(x[2]);         print("You cannot turn it into a list by slicing (it's a list already)");     print(xList)

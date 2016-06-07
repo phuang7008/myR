@@ -30,8 +30,11 @@ general <- function () {
     e <- numeric();     print (paste("value of e is ", e));
     e[3] <- 17;         print ("the new value of e is ");   print(e);
     
-    # splicing
+    # splicing, head() and tail()
     b <- seq(1:10);     print (b);      print (b[1:5]);     print (b[4:5]);
+    x1 <- seq(1:100)
+    print("to use head() to print out the top part of any data");       print(head(x1))
+    print("To use tail() to print out the last part of any data");      print(tail(x1))
     
     # if you want to save the output to a external file, use sink( )
     sink("sinkOutput.txt")      # divert all subsequent output from console to
