@@ -69,5 +69,10 @@ df <- function() {
     mySub <-subset(mtcars, mpg>30);             print('subsetting and sorting');        print(mySub[rank,])
     print("put together");      print(subset(mtcars, mpg>30)[rank,])
     
+    # when handling data.frame, you might want to use with(), within() or transform() to manipulate it. They are better than attach()
+    # Rule of thumb: using with() for single updates to data frames, and within() or transform() for multiple updates.
+    print("using with() to tapply() mean() to mtcars data");        print(with(mtcars, tapply(mpg, list(cyl, am), mean)))
+    print("using with() to produce cross interaction table");       print(with(mtcars, tapply(mpg, cyl:am, mean)))
+    
     sink()
 }

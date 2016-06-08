@@ -51,5 +51,7 @@ myList <- function () {
     # you could also unlist() a list to just a big, long vector
     print("To unlist a list");      print(unlist(x));
     
+    # to create a vector of 5 empty lists
+    vl <- vector("list", 5);        print ("5 empty lists stored in a vector");     print(vl)
     
 }
